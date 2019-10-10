@@ -11,4 +11,4 @@ bundle install
 yarn install --check-files
 
 # Run the application
-bundle exec rails s -p 3001 -b "0.0.0.0"
+bundle exec rails s -p 3000 -b "0.0.0.0"

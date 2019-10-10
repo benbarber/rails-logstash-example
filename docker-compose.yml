@@ -1,13 +1,35 @@
 version: '3'
 
 services:
+  logstash:
+    build:
+      context: .
+      dockerfile: Logstash.Dockerfile
+    ports:
+      - "5228:5228/udp"
+      - "5601:5601"
+      - "9200:9200"
+      - "5044:5044"
+
+    volumes:
+      - logstash_data:/var/lib/elasticsearch
+
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Rails.Dockerfile
+    environment: 
+      - LOGSTASH_ENABLED=true
+      - LOGSTASH_HOST=logstash
+      - LOGSTASH_PORT=5228
     volumes:
       - .:/app
       - bundler_gems:/usr/local/bundle/
     ports:
-      - "3001:3001"
+      - "3000:3000"
+    links:
+      - logstash
 
 volumes:
+  logstash_data:
   bundler_gems:
