@@ -18,5 +18,5 @@ docker-compose up
 Once you have the application up and running you can access the services at the following 
 URLs:
 
-(*) http://localhost:3000 - The Rails app
-(*) http://localhost:5601 - Kibana for viewing your logs
+- http://localhost:3000 - The Rails app
+- http://localhost:5601 - Kibana for viewing your logs
