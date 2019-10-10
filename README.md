@@ -1,24 +1,22 @@
-# README
+# Rails Logstash Example
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an example Rails 6 application that is configured to send its logs to a Logstash 
+instance over UDP.
 
-Things you may want to cover:
+You can read [Sending Rails Application Logs to Logstash over UDP](https://benbarber.co.uk/blog/sending-rails-application-logs-to-logstash-over-udp) over on my blog which walks you 
+through the steps required to add this to an existing Rails app.
 
-* Ruby version
+## Getting started
 
-* System dependencies
+To run the project you will need Docker and DockerCompose installed on your machine. You
+can then run the project via DockerCompose as below;
 
-* Configuration
+```bash
+docker-compose up
+```
 
-* Database creation
+Once you have the application up and running you can access the services at the following 
+URLs:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+(*) http://localhost:3000 - The Rails app
+(*) http://localhost:5601 - Kibana for viewing your logs
